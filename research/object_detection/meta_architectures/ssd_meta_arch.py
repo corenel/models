@@ -575,6 +575,15 @@ class SSDMetaArch(model.DetectionModel):
             feature_map_spatial_dims,
             im_height=image_shape[1],
             im_width=image_shape[2]))
+
+    # save anchors
+    sess = tf.Session()
+    with sess.as_default():
+        import numpy as np
+        anchors_to_save = np.asarray([tensor.eval() for tensor in self._anchors.get_center_coordinates_and_sizes()])
+        np.save('/tmp/anchors.npy', anchors_to_save)
+        # exit(0)
+
     if self._box_predictor.is_keras_model:
       predictor_results_dict = self._box_predictor(feature_maps)
     else:

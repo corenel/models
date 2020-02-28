@@ -51,7 +51,7 @@ from object_detection.utils.np_box_ops import iou
 tf.app.flags.DEFINE_string('data_dir', '', 'Location of root directory for the '
                            'data. Folder structure is assumed to be:'
                            '<data_dir>/training/label_2 (annotations) and'
-                           '<data_dir>/data_object_image_2/training/image_2'
+                           '<data_dir>/training/image_2'
                            '(images).')
 tf.app.flags.DEFINE_string('output_path', '', 'Path to which TFRecord files'
                            'will be written. The TFRecord with the training set'
@@ -100,7 +100,6 @@ def convert_kitti_to_tfrecords(data_dir, output_path, classes_to_use,
                                 'label_2')
 
   image_dir = os.path.join(data_dir,
-                           'data_object_image_2',
                            'training',
                            'image_2')
 

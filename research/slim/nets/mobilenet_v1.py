@@ -241,7 +241,7 @@ def mobilenet_v1_base(inputs,
       # The atrous convolution rate parameter.
       rate = 1
 
-      net = inputs
+      net = tf.identity(inputs, name='input')
       for i, conv_def in enumerate(conv_defs):
         end_point_base = 'Conv2d_%d' % i
 

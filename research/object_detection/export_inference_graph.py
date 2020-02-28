@@ -128,6 +128,9 @@ tf.app.flags.mark_flag_as_required('output_directory')
 FLAGS = flags.FLAGS
 
 
+# import os
+# os.environ['CUDA_VISIBLE_DEVICES'] = '1'
+
 def main(_):
   pipeline_config = pipeline_pb2.TrainEvalPipelineConfig()
   with tf.gfile.GFile(FLAGS.pipeline_config_path, 'r') as f:
